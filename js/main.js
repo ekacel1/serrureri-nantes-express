@@ -86,4 +86,36 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // Hamburger Menu Toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileNav = document.querySelector('.mobile-nav');
+    const menuIcon = menuToggle ? menuToggle.querySelector('i') : null; // Get the icon element
+
+    if (menuToggle && mobileNav && menuIcon) {
+        menuToggle.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+
+            // Change icon based on menu state
+            if (mobileNav.classList.contains('active')) {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-times'); // Change to close icon
+            } else {
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars'); // Change back to bars icon
+            }
+        });
+        
+        // Optional: Close menu when a link is clicked (useful for SPAs)
+        const mobileNavLinks = mobileNav.querySelectorAll('a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (mobileNav.classList.contains('active')) {
+                    mobileNav.classList.remove('active');
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
+                }
+            });
+        });
+    }
 });

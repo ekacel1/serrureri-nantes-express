@@ -31,6 +31,7 @@ body {
 header {
     background-color: var(--white);
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative; /* Make header relative for mobile menu positioning */
 }
 
 .top-header {
@@ -82,6 +83,60 @@ nav a:hover {
     display: block;
     font-size: 0.8em;
     color: var(--secondary-color);
+}
+
+/* Hamburger Menu Icon - Hidden by default */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    color: var(--secondary-color);
+}
+
+/* Mobile Navigation - Hidden by default */
+.mobile-nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%; /* Position below the header */
+    left: 0;
+    width: 100%;
+    background-color: var(--white);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 999;
+    padding: 15px 0;
+    text-align: center;
+}
+
+.mobile-nav.active {
+    display: flex;
+}
+
+.mobile-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.mobile-nav li {
+    margin-bottom: 15px;
+}
+
+.mobile-nav a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 600;
+    display: block;
+    padding: 10px 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.mobile-nav a:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
 }
 
 /* Header sticky */
@@ -144,6 +199,7 @@ body.header-sticky-padding {
     border-radius: 10px;
     max-width: 400px;
     margin-left: auto;
+    margin-right: auto; /* Center form on smaller screens when hero text isn't beside it */
 }
 
 .contact-form h2 {
@@ -171,7 +227,13 @@ h2 {
 /* Trust logos */
 .trust-logos {
     background: var(--light-gray);
-    padding: 30px 0;
+    padding: 50px 0; /* Increased vertical padding */
+    border-top: 1px solid #eee; /* Subtle separator */
+    border-bottom: 1px solid #eee; /* Subtle separator */
+}
+
+.trust-logos h2 {
+    margin-bottom: 40px; /* More space below title */
 }
 
 .logos {
@@ -182,7 +244,14 @@ h2 {
 }
 
 .logos img {
-    height: 40px;
+    height: 45px; /* Slightly increase size */
+    opacity: 0.8; /* Slightly faded by default */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+.logos img:hover {
+    opacity: 1; /* Full opacity on hover */
+    transform: scale(1.05); /* Slight scale on hover */
 }
 
 /* Key features section */
@@ -588,18 +657,25 @@ footer {
         text-align: center;
     }
 
-    nav ul {
-        justify-content: center;
-        gap: 15px;
+    nav {
+        display: none; /* Hide desktop nav */
     }
 
-    .phone-number {
-        text-align: center;
+    .menu-toggle {
+        display: block;
+        position: absolute; /* Position relative to header */
+        top: 20px; /* Adjust as needed */
+        right: 20px; /* Adjust as needed */
+    }
+    
+    /* Adjust header padding to make space if needed, or manage via positioning */
+    .top-header {
+        padding-bottom: 60px; /* Add padding if menu toggle overlaps content */
     }
 
     .hero {
-        min-height: 400px;
-        padding: 40px 0;
+        min-height: auto; /* Let content define height */
+        padding: 60px 0; /* Adjust padding */
     }
 
     .contact-form {
@@ -615,12 +691,8 @@ footer {
     }
 
     .about-content {
-        flex-direction: column;
+        grid-template-columns: 1fr; /* Stack about content */
         gap: 30px;
-    }
-
-    .about-text, .about-cta {
-        width: 100%;
     }
 
     .review-cards {
@@ -651,22 +723,49 @@ footer {
     .footer-links ul {
         padding-left: 0;
     }
-}
-
-@media screen and (max-width: 480px) {
-    .container {
-        padding: 0 15px;
-    }
-
-    h2 {
-        font-size: 1.5em;
-    }
-
-    .feature-box {
-        padding: 20px;
-    }
 
     .phone-number a {
         font-size: 1.2em;
+    }
+}
+
+/* Further adjustments for very small screens if needed */
+@media screen and (max-width: 360px) {
+    .phone-number a {
+        font-size: 1em; /* Slightly smaller phone number */
+        gap: 5px;
+    }
+
+    .availability {
+        font-size: 0.7em;
+    }
+
+    .hero {
+        padding: 40px 0;
+    }
+
+    .contact-form {
+        padding: 20px;
+    }
+
+    .contact-form h2 {
+        font-size: 1.2em;
+    }
+    
+    h2 { /* Global h2 adjustments */
+        font-size: 1.3em;
+    }
+
+    .btn-primary, .btn-secondary, .btn-info {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+    
+    .feature-box, .service-card, .review-card {
+        padding: 15px;
+    }
+    
+    nav a, .mobile-nav a { /* Reduce nav font size */
+      font-size: 0.95em;
     }
 }
