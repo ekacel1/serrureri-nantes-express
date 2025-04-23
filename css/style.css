@@ -1,0 +1,539 @@
+/* Variables */
+:root {
+    --primary-color: #ff6600;
+    --secondary-color: #2c3e50;
+    --text-color: #333;
+    --light-gray: #f5f5f5;
+    --white: #fff;
+    --max-width: 1200px;
+}
+
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header styles */
+header {
+    background-color: var(--white);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.top-header {
+    padding: 15px 0;
+}
+
+.top-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+}
+
+nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+nav a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+.phone-number {
+    text-align: right;
+}
+
+.phone-number a {
+    color: var(--primary-color);
+    font-size: 1.5em;
+    font-weight: bold;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.availability {
+    display: block;
+    font-size: 0.8em;
+    color: var(--secondary-color);
+}
+
+/* Hero section */
+.hero {
+    position: relative;
+    min-height: 600px;
+    padding: 80px 0;
+    color: var(--white);
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../images/serrurrier_express_landing.jpg");
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.7);
+    z-index: -1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.contact-form {
+    background: rgba(255,255,255,0.95);
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 400px;
+    margin-left: auto;
+}
+
+.contact-form h2 {
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Global styles */
+h2 {
+    text-align: center;
+    color: var(--secondary-color);
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+/* Trust logos */
+.trust-logos {
+    background: var(--light-gray);
+    padding: 30px 0;
+}
+
+.logos {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    align-items: center;
+}
+
+.logos img {
+    height: 40px;
+}
+
+/* Key features section */
+.key-features {
+    padding: 40px 0;
+    background-color: var(--white);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.feature-box {
+    background: var(--white);
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.feature-box:hover {
+    transform: translateY(-5px);
+}
+
+.feature-number {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.feature-icon {
+    margin-bottom: 20px;
+}
+
+.feature-icon i {
+    font-size: 2.5em;
+    color: var(--primary-color);
+}
+
+.feature-box h3 {
+    color: var(--secondary-color);
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.feature-box p {
+    color: #666;
+    font-size: 0.95em;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Section styles */
+.section-intro {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    text-align: center;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* About section */
+.about {
+    padding: 80px 0;
+    background: var(--light-gray);
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 50px;
+    align-items: start;
+}
+
+.about-text .highlight {
+    font-size: 1.2em;
+    color: var(--secondary-color);
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.about-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.about-list li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.about-list i {
+    color: var(--primary-color);
+    font-size: 1.2em;
+}
+
+.about-cta {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.about-cta h3 {
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+.about-cta p {
+    margin-bottom: 25px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Reviews section */
+.reviews {
+    padding: 80px 0;
+    background: var(--white);
+}
+
+.rating {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.stars {
+    font-size: 1.5em;
+    color: #ffd700;
+    margin-right: 10px;
+}
+
+.score {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.total-reviews {
+    color: #666;
+    margin-left: 10px;
+}
+
+.review-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.review-card {
+    background: var(--white);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+}
+
+.reviewer {
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.review-date {
+    display: block;
+    margin-top: 15px;
+    color: #999;
+    font-size: 0.9em;
+}
+
+.reviews-cta {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.reviews-note {
+    margin-top: 15px;
+    color: #666;
+    font-size: 0.9em;
+}
+
+/* Services section */
+.services {
+    padding: 60px 0;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    padding: 20px 0;
+}
+
+.service-card {
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.service-card img {
+    width: 100%;
+    max-width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.service-card h3 {
+    color: var(--secondary-color);
+    margin: 0;
+    font-size: 1.3em;
+}
+
+.service-card p {
+    color: #666;
+    font-size: 0.95em;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0 10px;
+}
+
+/* CTA section */
+.cta {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 60px 0;
+    text-align: center;
+}
+
+/* Buttons */
+.btn-primary {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #e65c00;
+}
+
+.btn-secondary {
+    background: var(--secondary-color);
+    color: var(--white);
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.btn-info {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--secondary-color);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn-info:hover {
+    background-color: var(--primary-color);
+}
+
+/* Footer */
+footer {
+    background: var(--secondary-color);
+    color: var(--white);
+    padding: 60px 0 30px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-logo img {
+    height: 40px;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links a {
+    color: var(--white);
+    text-decoration: none;
+    line-height: 2;
+}
+
+.footer-contact p {
+    margin-bottom: 10px;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 30px;
+    text-align: center;
+}
+
+.footer-bottom a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .top-header .container {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    nav ul {
+        justify-content: center;
+    }
+
+    .phone-number {
+        text-align: center;
+    }
+
+    .review-cards,
+    .service-grid,
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form {
+        margin: 0 auto;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .review-cards {
+        grid-template-columns: 1fr;
+    }
+}
